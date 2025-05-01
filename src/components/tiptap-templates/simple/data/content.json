@@ -1,0 +1,47 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Welcome to the Editor"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is a basic template demonstrating a custom code block with a Run button and output section."
+        }
+      ]
+    },
+    {
+      "type": "codeBlockWithRun",
+      "attrs": {
+        "language": "javascript"
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "console.log('Hello, world!');"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Feel free to modify the code above and click Run to see the output."
+        }
+      ]
+    }
+  ]
+}

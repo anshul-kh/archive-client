@@ -1,0 +1,83 @@
+.code-block-wrapper.terminal-theme {
+  background-color: #1e1e2f;
+  border-radius: 8px;
+  color: #cfd8dc;
+  font-family: 'Fira Code', monospace;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #333;
+}
+
+.code-header {
+  background-color: #2c2c3e;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #a0aec0;
+}
+
+.run-btn {
+  background: none;
+  border: none;
+  color: #00ffae;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.code-body {
+  padding: 1rem;
+}
+
+.code-editor {
+  width: 100%;
+  min-height: 120px; /* reduced from 200px */
+  max-height: 300px;
+  background-color: transparent;
+  border: none;
+  resize: vertical;
+  color: #cfd8dc;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  white-space: pre;
+  outline: none;
+}
+
+.code-output {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  background-color: #111;
+  padding: 0.3rem;
+  border-radius: 4px;
+  border: 1px solid #333;
+  color: #9effef;
+  max-height: 150px; /* reduced height */
+  overflow-y: auto;
+  height: 100px;
+}
+
+.output-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #00ffae;
+}
+
+.code-footer {
+  padding: 0.5rem 1rem;
+  background-color: #2c2c3e;
+  border-top: 1px solid #333;
+}
+
+.code-footer select {
+  background: #1e1e2f;
+  color: #cfd8dc;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+}
+
+.output-error {
+  color: #ff6b6b;
+}
+
