@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import RootPageLayout from "@/layouts/root-page";
 import { SimpleEditor } from "@/components/tiptap-templates/simple/simple-editor";
 import { useDocumentStore } from "@/stores/useContentStore";
+import { CanvasModeToggle } from "@/components/canvas-toggle";
 
 export default function EditPage() {
   const { id: sessionId } = useParams();
@@ -33,6 +34,7 @@ export default function EditPage() {
   return (
     <RootPageLayout>
       {sessionId ? <SimpleEditor /> : null}
+      {sessionId ? <CanvasModeToggle/>:null}
     </RootPageLayout>
   );
 }

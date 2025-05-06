@@ -2,23 +2,22 @@ import * as React from "react"
 import { EditorContent, EditorContext, useEditor } from "@tiptap/react"
 
 // --- Tiptap Core Extensions ---
-import { StarterKit } from "@tiptap/starter-kit"
-import { Image } from "@tiptap/extension-image"
-import { TaskItem } from "@tiptap/extension-task-item"
-import { TaskList } from "@tiptap/extension-task-list"
-import { TextAlign } from "@tiptap/extension-text-align"
-import { Typography } from "@tiptap/extension-typography"
-import { Highlight } from "@tiptap/extension-highlight"
-import { Subscript } from "@tiptap/extension-subscript"
-import { Superscript } from "@tiptap/extension-superscript"
-import { Underline } from "@tiptap/extension-underline"
-// import { CodeBlock } from "@/extensions/code-block-with-run"
+import StarterKit from "@tiptap/starter-kit"
+import Image from "@tiptap/extension-image"
+import TaskItem from "@tiptap/extension-task-item"
+import TaskList from "@tiptap/extension-task-list"
+import TextAlign from "@tiptap/extension-text-align"
+import Typography from "@tiptap/extension-typography"
+import Highlight from "@tiptap/extension-highlight"
+import Subscript from "@tiptap/extension-subscript"
+import Superscript from "@tiptap/extension-superscript"
+import Underline from "@tiptap/extension-underline"
 
 // --- Custom Extensions ---
-import { Link } from "@/components/tiptap-extension/link-extension"
-import { Selection } from "@/components/tiptap-extension/selection-extension"
-import { TrailingNode } from "@/components/tiptap-extension/trailing-node-extension"
-import { CodeBlockWithRun } from '@/extensions/code-block-with-run'
+import Link from "@/components/tiptap-extension/link-extension"
+import Selection from "@/components/tiptap-extension/selection-extension"
+import TrailingNode from "@/components/tiptap-extension/trailing-node-extension"
+import {CodeBlockWithRun} from "@/extensions/code-block-with-run"
 
 // --- UI Primitives ---
 import { Button } from "@/components/tiptap-ui-primitive/button"
@@ -29,8 +28,8 @@ import {
   ToolbarSeparator,
 } from "@/components/tiptap-ui-primitive/toolbar"
 
-// --- Tiptap Node ---
-import { ImageUploadNode } from "@/components/tiptap-node/image-upload-node/image-upload-node-extension"
+// --- Tiptap Nodes ---
+import ImageUploadNode from "@/components/tiptap-node/image-upload-node/image-upload-node-extension"
 import "@/components/tiptap-node/code-block-node/code-block-node.scss"
 import "@/components/tiptap-node/list-node/list-node.scss"
 import "@/components/tiptap-node/image-node/image-node.scss"
@@ -83,73 +82,71 @@ const MainToolbarContent = ({
   onHighlighterClick: () => void
   onLinkClick: () => void
   isMobile: boolean
-}) => {
-  return (
-    <>
-      <Spacer />
+}) => (
+  <>
+    <Spacer />
 
-      <ToolbarGroup>
-        <UndoRedoButton action="undo" />
-        <UndoRedoButton action="redo" />
-      </ToolbarGroup>
+    <ToolbarGroup>
+      <UndoRedoButton action="undo" />
+      <UndoRedoButton action="redo" />
+    </ToolbarGroup>
 
-      <ToolbarSeparator />
+    <ToolbarSeparator />
 
-      <ToolbarGroup>
-        <HeadingDropdownMenu levels={[1, 2, 3, 4]} />
-        <ListDropdownMenu types={["bulletList", "orderedList", "taskList"]} />
-        <NodeButton type="codeBlock" />
-        <NodeButton type="blockquote" />
-      </ToolbarGroup>
+    <ToolbarGroup>
+      <HeadingDropdownMenu levels={[1, 2, 3, 4]} />
+      <ListDropdownMenu types={["bulletList", "orderedList", "taskList"]} />
+      <NodeButton type="codeBlock" />
+      <NodeButton type="blockquote" />
+    </ToolbarGroup>
 
-      <ToolbarSeparator />
+    <ToolbarSeparator />
 
-      <ToolbarGroup>
-        <MarkButton type="bold" />
-        <MarkButton type="italic" />
-        <MarkButton type="strike" />
-        <MarkButton type="code" />
-        <MarkButton type="underline" />
-        {!isMobile ? (
-          <HighlightPopover />
-        ) : (
-          <HighlighterButton onClick={onHighlighterClick} />
-        )}
-        {!isMobile ? <LinkPopover /> : <LinkButton onClick={onLinkClick} />}
-      </ToolbarGroup>
+    <ToolbarGroup>
+      <MarkButton type="bold" />
+      <MarkButton type="italic" />
+      <MarkButton type="strike" />
+      <MarkButton type="code" />
+      <MarkButton type="underline" />
+      {!isMobile ? (
+        <HighlightPopover />
+      ) : (
+        <HighlighterButton onClick={onHighlighterClick} />
+      )}
+      {!isMobile ? <LinkPopover /> : <LinkButton onClick={onLinkClick} />}
+    </ToolbarGroup>
 
-      <ToolbarSeparator />
+    <ToolbarSeparator />
 
-      <ToolbarGroup>
-        <MarkButton type="superscript" />
-        <MarkButton type="subscript" />
-      </ToolbarGroup>
+    <ToolbarGroup>
+      <MarkButton type="superscript" />
+      <MarkButton type="subscript" />
+    </ToolbarGroup>
 
-      <ToolbarSeparator />
+    <ToolbarSeparator />
 
-      <ToolbarGroup>
-        <TextAlignButton align="left" />
-        <TextAlignButton align="center" />
-        <TextAlignButton align="right" />
-        <TextAlignButton align="justify" />
-      </ToolbarGroup>
+    <ToolbarGroup>
+      <TextAlignButton align="left" />
+      <TextAlignButton align="center" />
+      <TextAlignButton align="right" />
+      <TextAlignButton align="justify" />
+    </ToolbarGroup>
 
-      <ToolbarSeparator />
+    <ToolbarSeparator />
 
-      <ToolbarGroup>
-        <ImageUploadButton text="Add" />
-      </ToolbarGroup>
+    <ToolbarGroup>
+      <ImageUploadButton text="Add" />
+    </ToolbarGroup>
 
-      <Spacer />
+    <Spacer />
 
-      {isMobile && <ToolbarSeparator />}
+    {isMobile && <ToolbarSeparator />}
 
-      <ToolbarGroup>
-        <ThemeToggle />
-      </ToolbarGroup>
-    </>
-  )
-}
+    <ToolbarGroup>
+      <ThemeToggle />
+    </ToolbarGroup>
+  </>
+)
 
 const MobileToolbarContent = ({
   type,
@@ -180,34 +177,29 @@ export function SimpleEditor() {
   const isMobile = useMobile()
   const windowSize = useWindowSize()
   const [mobileView, setMobileView] = React.useState<"main" | "highlighter" | "link">("main")
-  const [rect, _setRect] = React.useState<Pick<DOMRect, "x" | "y" | "width" | "height">>({
+  const [rect, setRect] = React.useState<Pick<DOMRect, "x" | "y" | "width" | "height">>({
     x: 0,
     y: 0,
     width: 0,
     height: 0,
   })
-  const toolbarRef = React.useRef<HTMLDivElement>(null)
 
-  const { content, setContent, isEditable } = useDocumentStore()
+  const toolbarRef = React.useRef<HTMLDivElement>(null)
+  const { content, setContent } = useDocumentStore()
 
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({ 
-        codeBlock: false // Disable default code block since we're using our custom one
-      }),
+      StarterKit.configure({ codeBlock: false }),
       CodeBlockWithRun.configure({
-        // Make sure to properly configure the code block extension
-        HTMLAttributes: {
-          class: 'code-block',
-        },
-        languageClassPrefix: 'language-',
+        HTMLAttributes: { class: "code-block" },
+        languageClassPrefix: "language-",
         exitOnTripleEnter: true,
         exitOnArrowDown: true,
       }),
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       Underline,
-      TaskList,
-      TaskItem.configure({ nested: true }),
+      TaskList.configure({ HTMLAttributes: { class: "task-list" } }),
+      TaskItem.configure({ HTMLAttributes: { class: "task-item" }, nested: true }),
       Highlight.configure({ multicolor: true }),
       Image,
       Typography,
@@ -224,11 +216,10 @@ export function SimpleEditor() {
       TrailingNode,
       Link.configure({ openOnClick: false }),
     ],
-    content: content,
-    // editable: isEditable,
+    content,
     editorProps: {
       attributes: {
-        class: 'prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto focus:outline-none',
+        class: "prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto focus:outline-none",
         autocomplete: "true",
         autocorrect: "off",
         autocapitalize: "off",
@@ -241,48 +232,30 @@ export function SimpleEditor() {
     },
   })
 
-  // React.useEffect(() => {
-  //   if (editor) {
-  //     editor.setOptions({ editable: isEditable }) 
-  //   }
-  // }, [editor, isEditable])
-
-  // Only set new content when it's from external source (not self-updated)
   React.useEffect(() => {
     if (editor && content && !editor.isDestroyed) {
       const current = editor.getJSON()
       const isEqual = JSON.stringify(current) === JSON.stringify(content)
-      if (!isEqual) {
-        editor.commands.setContent(content)
-      }
+      if (!isEqual) editor.commands.setContent(content)
     }
   }, [content, editor])
 
   React.useEffect(() => {
     const checkCursorVisibility = () => {
       if (!editor || !toolbarRef.current) return
-
       const { state, view } = editor
       if (!view.hasFocus()) return
 
       const { from } = state.selection
       const cursorCoords = view.coordsAtPos(from)
 
-      if (windowSize.height < rect.height) {
-        if (cursorCoords && toolbarRef.current) {
-          const toolbarHeight =
-            toolbarRef.current.getBoundingClientRect().height
-          const isEnoughSpace =
-            windowSize.height - cursorCoords.top - toolbarHeight > 0
+      if (windowSize.height < rect.height && cursorCoords) {
+        const toolbarHeight = toolbarRef.current.getBoundingClientRect().height
+        const isEnoughSpace = windowSize.height - cursorCoords.top - toolbarHeight > 0
 
-          if (!isEnoughSpace) {
-            const scrollY =
-              cursorCoords.top - windowSize.height / 2 + toolbarHeight
-            window.scrollTo({
-              top: scrollY,
-              behavior: "smooth",
-            })
-          }
+        if (!isEnoughSpace) {
+          const scrollY = cursorCoords.top - windowSize.height / 2 + toolbarHeight
+          window.scrollTo({ top: scrollY, behavior: "smooth" })
         }
       }
     }
@@ -302,9 +275,7 @@ export function SimpleEditor() {
         ref={toolbarRef}
         style={
           isMobile
-            ? {
-                bottom: `calc(100% - ${windowSize.height - rect.y}px)`,
-              }
+            ? { bottom: `calc(100% - ${windowSize.height - rect.y}px)` }
             : {}
         }
       >
@@ -316,7 +287,7 @@ export function SimpleEditor() {
           />
         ) : (
           <MobileToolbarContent
-            type={mobileView === "highlighter" ? "highlighter" : "link"}
+            type={mobileView}
             onBack={() => setMobileView("main")}
           />
         )}

@@ -3,10 +3,10 @@ import axiosClient from '@/lib/axios-client'
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
-interface UseApiOptions {
-  url?: string
-  method?: HttpMethod
-}
+// interface UseApiOptions {
+//   url?: string
+//   method?: HttpMethod
+// }
 
 interface RequestOptions {
   url?: string
