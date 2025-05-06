@@ -177,7 +177,7 @@ export function SimpleEditor() {
   const isMobile = useMobile()
   const windowSize = useWindowSize()
   const [mobileView, setMobileView] = React.useState<"main" | "highlighter" | "link">("main")
-  const [rect, setRect] = React.useState<Pick<DOMRect, "x" | "y" | "width" | "height">>({
+  const [rect, _] = React.useState<Pick<DOMRect, "x" | "y" | "width" | "height">>({
     x: 0,
     y: 0,
     width: 0,

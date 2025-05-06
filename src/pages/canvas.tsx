@@ -1,9 +1,7 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RootPageLayout from "@/layouts/root-page";
-import { SimpleEditor } from "@/components/tiptap-templates/simple/simple-editor";
-import { useDocumentStore } from "@/stores/useContentStore";
 import { CanvasModeToggle } from "@/components/canvas-toggle";
+import OverviewFlow from "@/components/canvas-ui/overview-flow";
 
 export default function CanvasPage() {
   const { id: sessionId } = useParams();
@@ -33,6 +31,7 @@ export default function CanvasPage() {
 
   return (
     <RootPageLayout>
+      {sessionId ? <OverviewFlow/>:null}
       {sessionId ? <CanvasModeToggle/>:null}
     </RootPageLayout>
   );
